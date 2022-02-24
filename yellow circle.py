@@ -4,19 +4,15 @@ import sys
 from random import randint
 from PyQt5.QtGui import QPainter, QColor
 from random import randint
+from UI import Ui_MainWindow
 
 
-class YellowCircles(QMainWindow):
+class YellowCircles(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('UI.ui', self)
+        self.setupUi(self)
         self.pushButton.clicked.connect(self.update)
         self.drawing = True
-        self.initUI()
-
-    def initUI(self):
-        self.setWindowTitle('Желтые круги')
-        self.show()
 
     def paintEvent(self, event):
         if self.drawing:
@@ -35,4 +31,5 @@ class YellowCircles(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = YellowCircles()
+    ex.show()
     sys.exit(app.exec_())
