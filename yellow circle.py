@@ -3,6 +3,7 @@ from PyQt5 import uic
 import sys
 from random import randint
 from PyQt5.QtGui import QPainter, QColor
+from random import randint
 
 
 class YellowCircles(QMainWindow):
@@ -21,7 +22,7 @@ class YellowCircles(QMainWindow):
         if self.drawing:
             qp = QPainter()
             qp.begin(self)
-            qp.setPen(QColor('yellow'))
+            qp.setPen(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
             self.draw(qp)
             qp.end()
 
